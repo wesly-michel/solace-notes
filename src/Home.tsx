@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
-import { Button, Card, Col, Form, Row, Stack, InputGroup } from "react-bootstrap";
+import { Button, Col, Form, Row, Stack, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import * as styles from "./Home.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
