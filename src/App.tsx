@@ -48,7 +48,7 @@ function App() {
     const fetchNotes = async () => {
       try {
         const response = await axios.get<RawNote[]>(
-          "http://localhost:3000/api/notes"
+          "https://solace-notes-backend.onrender.com/api/notes"
         );
         const transformedNotes = response.data.map((note) => ({
           id: note.id,
@@ -67,7 +67,7 @@ function App() {
   async function onCreateNote(data: NoteData) {
     try {
       const newNote: RawNote = { ...data, id: uuidV4() };
-      const response = await axios.post<RawNote>('http://localhost:3000/api/notes', newNote);
+      const response = await axios.post<RawNote>('https://solace-notes-backend.onrender.com/api/notes', newNote);
       setNotes(prev => {
         return [...prev, response.data];
       });
@@ -79,7 +79,7 @@ function App() {
 
   async function onDeleteNote(id: string) {
     try {
-      await axios.delete(`http://localhost:3000/api/notes/${id}`);
+      await axios.delete(`https://solace-notes-backend.onrender.com/api/notes/${id}`);
       setNotes(prev => prev.filter(note => note.id !== id));
     } catch (error) {
       console.error("Error deleting note:", error);
@@ -88,7 +88,7 @@ function App() {
 
   async function onUpdateNote(id: string, data: NoteData) {
     try {
-      const response = await axios.put<RawNote>(`http://localhost:3000/api/notes/${id}`, data);
+      const response = await axios.put<RawNote>(`https://solace-notes-backend.onrender.com/api/notes/${id}`, data);
       setNotes(prev => prev.map(note => note.id === id ? response.data : note));
     } catch (error) {
       console.error("Error updating note:", error);
